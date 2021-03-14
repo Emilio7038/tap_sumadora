@@ -42,14 +42,19 @@ namespace sumadora
         private void button1_Click(object sender, EventArgs e)
         {
             if(string.IsNullOrEmpty(valores.Text)){
-                MessageBox.Show("el campo no debe ser vacio");
+                MessageBox.Show("El campo no debe ser vacio");
             }
             else if (valores.Text.ToLower().Contains("sumar"))
             {
                 resultados.Append(valores.Text);
-                resultados.Append(" el resultado de la suma es: " + obtenerSuma());
+                resultados.Append(" El resultado de la suma es: " + obtenerSuma());
                 resultados.Append("\r\n");
 
+            }else if (valores.Text.ToLower().Contains("restar"))
+            {
+                resultados.Append(valores.Text);
+                resultados.Append(" El resultado de la resta es: " + obtenerResta());
+                resultados.Append("\r\n");
             }
             else
             {
@@ -86,6 +91,19 @@ namespace sumadora
 
             return suma;
         }
+
+        private double obtenerResta()
+        {
+            double resta =resultadosint.First();
+            for (int i = 1; i < resultadosint.Count(); i++)
+            {
+                resta -= resultadosint.ElementAt(i);
+
+            }
+
+            return resta;
+        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
